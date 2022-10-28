@@ -29,6 +29,13 @@ def _validate_input(options, hive_name):
     LOG_PATH[1] = os.path.join(options.logs, hive_name + '.LOG1')
     LOG_PATH[2] = os.path.join(options.logs, hive_name + '.LOG2')
 
+    if not os.path.exists(LOG_PATH[0]):
+        LOG_PATH[0] = os.path.join(options.logs, hive_name.lower() + '.LOG')
+    if not os.path.exists(LOG_PATH[1]):
+        LOG_PATH[1] = os.path.join(options.logs, hive_name.lower() + '.LOG1')
+    if not os.path.exists(LOG_PATH[2]):
+        LOG_PATH[2] = os.path.join(options.logs, hive_name.lower() + '.LOG2')
+
     # check if each transaction log exists
     for idx in range(len(LOG_PATH)):
         if not os.path.isfile(LOG_PATH[idx]):
