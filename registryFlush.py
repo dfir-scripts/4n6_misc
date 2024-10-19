@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#! /usr/bin/env python3
 """Script to flush transaction log files into their corresponding registry hives"""
 
 from yarp import Registry
