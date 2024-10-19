@@ -65,6 +65,11 @@ def main():
     argument_parser.add_argument('--overwrite', action='store_true', help="overwrite existing hive")
 
     options = argument_parser.parse_args()
+
+    if options.hive is None:
+        argument_parser.print_help()
+        return False
+
     if options.hive is not None:
         options.hive = os.path.abspath(options.hive)
     if options.logs is None:
